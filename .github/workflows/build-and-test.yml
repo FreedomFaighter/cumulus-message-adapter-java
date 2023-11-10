@@ -31,9 +31,9 @@ jobs:
 
     - name: Build with Maven
       run: mvn --file message_parser/pom.xml dependency:go-offline
-    - name: Test with Maven
-      run: mvn --file message_parser/pom.xml integration-test
     - name: Build with Maven
       run: mvn -B package --file task/pom.xml
+    - name: Test with Maven
+      run: mvn --file message_parser/pom.xml integration-test
     - name: Test with Maven
       run: mvn test --file task/pom.xml
