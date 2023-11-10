@@ -33,6 +33,9 @@ jobs:
       run: mvn --file message_parser/pom.xml dependency:go-offline -DjavaVersion=${{ matrix.java }}
     - name: Build with Maven
       run: mvn -B package --file task/pom.xml -DjavaVersion=${{ matrix.java }}
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.10' 
     - name: Test with Maven
       run: mvn --file message_parser/pom.xml integration-test -DjavaVersion=${{ matrix.java }}
     - name: Test with Maven
