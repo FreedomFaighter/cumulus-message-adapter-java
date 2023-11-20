@@ -57,21 +57,20 @@ public class AdapterUtilities {
      */
     private static String getJsonResponse(String url) throws IOException {
         URL requestUrl = new URL(url);
-        try (HttpURLConnection conn = (HttpURLConnection) requestUrl.openConnection()) {
-            if (conn.getResponseCode() != HttpURLConnection.HTTP_OK) {
-                throw new RuntimeException("Request Failed. HTTP Error Code: " + conn.getResponseCode());
-            }
-
-            // Read response
-            StringBuilder jsonStringB = new StringBuilder();
-            try (BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
-                String line;
-                while ((line = br.readLine()) != null) {
-                    jsonStringB.append(line);
-                }
-            }
+        HttpURLConnection conn = (HttpURLConnection) requestUrl.openConnection()
+        if (conn.getResponseCode() != HttpURLConnection.HTTP_OK) {
+            throw new RuntimeException("Request Failed. HTTP Error Code: " + conn.getResponseCode());
         }
 
+        // Read response
+        StringBuilder jsonStringB = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                jsonStringB.append(line);
+            }
+        }
+        
         return jsonStringB.toString();
     }
 
