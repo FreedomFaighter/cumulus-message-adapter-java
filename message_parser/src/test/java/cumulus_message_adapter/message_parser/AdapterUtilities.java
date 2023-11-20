@@ -57,7 +57,7 @@ public class AdapterUtilities {
      */
     private static String getJsonResponse(String url) throws IOException {
         URL requestUrl = new URL(url);
-        HttpURLConnection conn = (HttpURLConnection) requestUrl.openConnection()
+        HttpURLConnection conn = (HttpURLConnection) requestUrl.openConnection();
         if (conn.getResponseCode() != HttpURLConnection.HTTP_OK) {
             throw new RuntimeException("Request Failed. HTTP Error Code: " + conn.getResponseCode());
         }
