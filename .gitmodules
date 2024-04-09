@@ -1,4 +1,4 @@
 [submodule "message_parser/cumulus-message-adapter"]
 	path = message_parser/cumulus-message-adapter
 	url = https://github.com/FreedomFaighter/cumulus-message-adapter/
-	branch = FreedomFaighter-patch-1
+
